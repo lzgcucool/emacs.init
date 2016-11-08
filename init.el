@@ -17,6 +17,7 @@
 			     php-mode
 			     color-theme-sanityinc-solarized
 			     monokai-theme
+			     popwin
 			     ) "Default packages")
 (setq package-selected-packages lzgcucool/packages)
 (defun lzgcucool/packages-installed-p()
@@ -30,7 +31,7 @@
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
-(setq auto-save-default -1)
+
 ;; close toolbar
 (tool-bar-mode -1)
 ;; close menubar
@@ -51,6 +52,7 @@
 (setq-default cursor-type 'bar)
 ;; disable backup file
 (setq make-backup-files nil)
+(setq auto-save-default -1)
 ;; org mode seting
 (require 'org)
 (setq org-src-fontify-natively t)
@@ -104,6 +106,16 @@
 ;; coNfig org-agenda
 (setq org-agenda-files '("~/.emacs.d/.org/"))
 (global-set-key (kbd "C-c a") 'org-agenda)
+
+;; config popwin 
+(require 'popwin)
+(popwin-mode t)
+
+
+(abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table '(
+					    ("lzg" "lzgcucool")))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

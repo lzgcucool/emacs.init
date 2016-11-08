@@ -2,35 +2,18 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(require 'package)
-(package-initialize)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-(require 'cl)
-(defvar lzgcucool/packages '(
-			     company
-			     zenburn-theme
-			     hungry-delete
-			     swiper
-			     counsel
-			     smartparens
-			     exec-path-from-shell
-			     php-mode
-			     color-theme-sanityinc-solarized
-			     monokai-theme
-			     popwin
-			     ) "Default packages")
-(setq package-selected-packages lzgcucool/packages)
-(defun lzgcucool/packages-installed-p()
-  (loop for pkg in lzgcucool/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
-(unless (lzgcucool/packages-installed-p)
-  (message "%s" "Refreshing packsge database...")
-  (package-refresh-contents)
-  (dolist (pkg lzgcucool/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
+(add-to-list 'load-path "~/.emacs.d/mod/")
+(require 'init-packages)
+
+(setq ring-bell-function 'ignore)
 
 ;; close toolbar
 (tool-bar-mode -1)
@@ -46,7 +29,7 @@
   (find-file "~/.emacs.d/init.el"))
 (global-set-key (kbd "<f2>") 'open-my-init-file)
 ;;(recentf-mode t)
-(global-company-mode t)
+
 (global-linum-mode t)
 ;; set cursor style
 (setq-default cursor-type 'bar)
@@ -65,21 +48,16 @@
 (setq mac-command-modifier 'super)
 (delete-selection-mode t)
 (setq  initial-frame-alist (quote ((fullscreen . maximized))))
-(show-paren-mode 1)
-;; (load-theme 'zenburn t)
+;; (show-paren-mode 1)
+
 (global-hl-line-mode 1)
 (set-face-background 'hl-line' "#bbbbbb")
-(require 'color-theme-sanityinc-solarized)
-(color-theme-sanityinc-solarized--define-theme light)
+
 
 (global-font-lock-mode t)
-;; config hungry delete
-(require 'hungry-delete)
-(global-hungry-delete-mode)
 
-;; Config counsel
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
+
+
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
@@ -88,33 +66,24 @@
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
 
-(require 'smartparens-config)
-(smartparens-global-mode t)
+
 
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+
 (global-unset-key (kbd "C-SPC"))
 (global-set-key (kbd "M-SPC") 'set-mark-command)
-
-(eval-after-load 'php-mode
-  '(require 'php-ext))
 
 ;; coNfig org-agenda
 (setq org-agenda-files '("~/.emacs.d/.org/"))
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-;; config popwin 
-(require 'popwin)
-(popwin-mode t)
-
-
 (abbrev-mode t)
 (define-abbrev-table 'global-abbrev-table '(
 					    ("lzg" "lzgcucool")))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

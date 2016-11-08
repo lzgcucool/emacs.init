@@ -36,7 +36,7 @@
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 
-(require 'smartparens-config)
+;; (require 'smartparens-config)
 (smartparens-global-mode t)
 
 (when (memq window-system '(mac ns))

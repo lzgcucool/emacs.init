@@ -39,6 +39,7 @@
 
 ;; (require 'smartparens-config)
 (smartparens-global-mode t)
+(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
 
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))

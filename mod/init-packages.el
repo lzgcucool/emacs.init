@@ -13,6 +13,7 @@
 			     color-theme-sanityinc-solarized
 			     monokai-theme
 			     popwin
+			     reveal-in-osx-finder
 			     ) "Default packages")
 (setq package-selected-packages lzgcucool/packages)
 (defun lzgcucool/packages-installed-p()

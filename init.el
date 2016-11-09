@@ -18,3 +18,4 @@
 ;; mac seting
 ;;(setq mac-option-modifier 'meta)
 ;;(setq mac-command-modifier 'super)
+(put 'dired-find-alternate-file 'disabled nil)

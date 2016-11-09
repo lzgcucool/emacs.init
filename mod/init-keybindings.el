@@ -19,4 +19,7 @@
 (with-eval-after-load 'dired
 (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 (global-set-key (kbd "C-c f") 'reveal-in-osx-finder)
+(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+(global-set-key (kbd "M-s i") 'counsel-imenu)
+(global-set-key (kbd "C-=") 'er/expand-region)
 (provide 'init-keybindings)

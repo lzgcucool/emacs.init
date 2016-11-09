@@ -13,5 +13,7 @@
 (global-unset-key (kbd "C-SPC"))
 (global-set-key (kbd "M-SPC") 'set-mark-command)
 (global-set-key (kbd "C-c p f") 'counsel-git)
+(global-set-key (kbd "C-c a") 'org-agenda)
+
 
 (provide 'init-keybindings)
